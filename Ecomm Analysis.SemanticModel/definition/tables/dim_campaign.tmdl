@@ -1,0 +1,74 @@
+table dim_campaign
+	lineageTag: 6772fa97-7ea8-461f-8a01-2a56a7e2f316
+
+	column campaign_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b45074e4-2d80-4b7e-a56d-5e49129904f7
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_name
+		dataType: string
+		lineageTag: f5fbcab4-7a7c-44b6-a669-2f8684156c6a
+		summarizeBy: none
+		sourceColumn: campaign_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		lineageTag: d1825cf2-05a4-4471-ab37-18f1e4706221
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7dfe7e87-83ce-4f54-bc5c-897c8a66c238
+		summarizeBy: none
+		sourceColumn: start_date
+
+		variation Variation
+			isDefault
+			relationship: a1825ffa-a60f-477f-836d-58d85d7f19c3
+			defaultHierarchy: LocalDateTable_2f465a9c-bc46-49a9-9598-3800aadeb11c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1095278b-1bf9-4371-be1b-0c92c14ef350
+		summarizeBy: none
+		sourceColumn: end_date
+
+		variation Variation
+			isDefault
+			relationship: a0f5f1ce-b4ed-4828-ad38-de16d5f01b57
+			defaultHierarchy: LocalDateTable_94e81271-24bc-4ebe-95f3-4981d5c654a2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition dim_campaign = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Power BI\ecom\dim_campaign.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"campaign_id", Int64.Type}, {"campaign_name", type text}, {"channel", type text}, {"start_date", type date}, {"end_date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

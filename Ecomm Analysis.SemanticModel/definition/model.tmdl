@@ -1,0 +1,33 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-PK
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_campaign","dim_channel","dim_customer","dim_date","dim_payment","dim_product","dim_region","fact_sales","_Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_campaign
+ref table DateTableTemplate_c21814cc-ba34-4439-9488-a5a5b6781d42
+ref table LocalDateTable_2f465a9c-bc46-49a9-9598-3800aadeb11c
+ref table LocalDateTable_94e81271-24bc-4ebe-95f3-4981d5c654a2
+ref table dim_channel
+ref table dim_customer
+ref table LocalDateTable_b195d493-36d9-4822-98e5-5bc7a208504c
+ref table dim_date
+ref table LocalDateTable_285306ac-cc71-4a73-aea0-5f77d40ee6a0
+ref table dim_payment
+ref table dim_product
+ref table dim_region
+ref table fact_sales
+ref table LocalDateTable_61ab321c-5ae8-45ba-b3fd-2067ebdc147d
+ref table _Measures
+ref table 'Waterfall Category'
+
+ref cultureInfo en-US
+

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "3debe3d24ca7a3f1adb4",
+  "position": {
+    "x": 751.43672692673647,
+    "y": 667.40247383444341,
+    "z": 18000,
+    "height": 69.419600380589912,
+    "width": 527.34538534728836,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Key Insights ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Times New Roman, \"serif\"",
+                      "fontSize": "12pt"
+                    }
+                  },
+                  {
+                    "value": "💡 Tier Paradox Explained Platinum = Frequent small orders (avg. $644) "
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Bronze = Occasional large orders (avg. $721) "
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Tiers assigned by purchase frequency, not spend"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFF2CC'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F1BD2B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

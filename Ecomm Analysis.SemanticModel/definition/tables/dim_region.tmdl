@@ -1,0 +1,48 @@
+table dim_region
+	lineageTag: 5855f002-c0e4-47cf-963b-b9822976a9b9
+
+	column region_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b5540847-b801-484d-9b89-b8bcac916a1e
+		summarizeBy: none
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: b59eec56-4723-415b-a382-f09e01a8a4c1
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 184b46f3-c3b3-454e-a10f-7b210d418d64
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 7475ee81-21b5-4885-92cc-c070c5248cc5
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_region = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Power BI\ecom\dim_region.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"region_id", Int64.Type}, {"country", type text}, {"state", type text}, {"city", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

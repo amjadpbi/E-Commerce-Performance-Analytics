@@ -1,0 +1,201 @@
+product_id,sku,product_name,category,brand,list_price,cost,is_active
+1,SKU-1001,Home & Kitchen Product 1,Home & Kitchen,Brand_29,475.6,329.49,1
+2,SKU-1002,Home & Kitchen Product 2,Home & Kitchen,Brand_21,54.49,31.81,1
+3,SKU-1003,Health & Beauty Product 3,Health & Beauty,Brand_12,15.19,11.97,0
+4,SKU-1004,Electronics Product 4,Electronics,Brand_26,496.14,321.0,1
+5,SKU-1005,Home & Kitchen Product 5,Home & Kitchen,Brand_10,149.16,96.17,1
+6,SKU-1006,Toys & Sports Product 6,Toys & Sports,Brand_30,120.22,52.45,1
+7,SKU-1007,Fashion Product 7,Fashion,Brand_19,298.25,124.84,1
+8,SKU-1008,Fashion Product 8,Fashion,Brand_14,11.57,8.99,1
+9,SKU-1009,Home & Kitchen Product 9,Home & Kitchen,Brand_15,53.35,35.94,1
+10,SKU-1010,Fashion Product 10,Fashion,Brand_17,417.43,195.92,1
+11,SKU-1011,Fashion Product 11,Fashion,Brand_10,159.3,96.86,1
+12,SKU-1012,Electronics Product 12,Electronics,Brand_10,421.93,244.68,1
+13,SKU-1013,Fashion Product 13,Fashion,Brand_23,461.33,200.86,1
+14,SKU-1014,Toys & Sports Product 14,Toys & Sports,Brand_15,423.04,295.67,1
+15,SKU-1015,Home & Kitchen Product 15,Home & Kitchen,Brand_9,144.06,88.9,1
+16,SKU-1016,Electronics Product 16,Electronics,Brand_1,12.74,7.25,1
+17,SKU-1017,Electronics Product 17,Electronics,Brand_3,408.65,279.0,1
+18,SKU-1018,Fashion Product 18,Fashion,Brand_28,463.52,306.12,1
+19,SKU-1019,Fashion Product 19,Fashion,Brand_23,168.79,71.81,1
+20,SKU-1020,Fashion Product 20,Fashion,Brand_3,297.69,151.79,1
+21,SKU-1021,Electronics Product 21,Electronics,Brand_26,358.06,252.19,1
+22,SKU-1022,Home & Kitchen Product 22,Home & Kitchen,Brand_26,25.01,17.11,1
+23,SKU-1023,Electronics Product 23,Electronics,Brand_20,20.56,13.46,1
+24,SKU-1024,Fashion Product 24,Fashion,Brand_15,73.97,47.47,1
+25,SKU-1025,Electronics Product 25,Electronics,Brand_22,43.11,22.24,1
+26,SKU-1026,Fashion Product 26,Fashion,Brand_28,151.34,66.92,1
+27,SKU-1027,Electronics Product 27,Electronics,Brand_26,446.82,275.12,1
+28,SKU-1028,Home & Kitchen Product 28,Home & Kitchen,Brand_27,453.88,230.96,1
+29,SKU-1029,Health & Beauty Product 29,Health & Beauty,Brand_8,431.06,173.62,1
+30,SKU-1030,Fashion Product 30,Fashion,Brand_24,347.76,176.58,0
+31,SKU-1031,Home & Kitchen Product 31,Home & Kitchen,Brand_17,261.8,178.34,1
+32,SKU-1032,Home & Kitchen Product 32,Home & Kitchen,Brand_3,127.2,86.31,1
+33,SKU-1033,Home & Kitchen Product 33,Home & Kitchen,Brand_2,23.26,14.98,1
+34,SKU-1034,Electronics Product 34,Electronics,Brand_30,175.81,114.93,1
+35,SKU-1035,Fashion Product 35,Fashion,Brand_4,492.9,244.88,1
+36,SKU-1036,Home & Kitchen Product 36,Home & Kitchen,Brand_5,124.87,90.06,1
+37,SKU-1037,Fashion Product 37,Fashion,Brand_1,270.21,117.84,1
+38,SKU-1038,Fashion Product 38,Fashion,Brand_28,349.43,259.75,1
+39,SKU-1039,Electronics Product 39,Electronics,Brand_7,258.49,126.81,1
+40,SKU-1040,Fashion Product 40,Fashion,Brand_1,196.43,152.17,1
+41,SKU-1041,Health & Beauty Product 41,Health & Beauty,Brand_10,108.49,66.89,1
+42,SKU-1042,Fashion Product 42,Fashion,Brand_28,409.52,254.75,1
+43,SKU-1043,Toys & Sports Product 43,Toys & Sports,Brand_27,482.88,300.99,1
+44,SKU-1044,Home & Kitchen Product 44,Home & Kitchen,Brand_20,351.68,259.77,1
+45,SKU-1045,Health & Beauty Product 45,Health & Beauty,Brand_8,322.81,139.99,1
+46,SKU-1046,Fashion Product 46,Fashion,Brand_25,292.44,160.52,1
+47,SKU-1047,Electronics Product 47,Electronics,Brand_22,84.6,52.41,1
+48,SKU-1048,Toys & Sports Product 48,Toys & Sports,Brand_14,92.08,37.5,1
+49,SKU-1049,Health & Beauty Product 49,Health & Beauty,Brand_17,326.57,241.56,1
+50,SKU-1050,Fashion Product 50,Fashion,Brand_22,256.86,168.12,1
+51,SKU-1051,Toys & Sports Product 51,Toys & Sports,Brand_27,199.58,151.05,1
+52,SKU-1052,Home & Kitchen Product 52,Home & Kitchen,Brand_1,324.33,216.51,1
+53,SKU-1053,Health & Beauty Product 53,Health & Beauty,Brand_17,143.98,58.99,1
+54,SKU-1054,Toys & Sports Product 54,Toys & Sports,Brand_6,237.62,121.62,1
+55,SKU-1055,Electronics Product 55,Electronics,Brand_21,464.52,265.37,1
+56,SKU-1056,Toys & Sports Product 56,Toys & Sports,Brand_23,42.3,22.09,1
+57,SKU-1057,Fashion Product 57,Fashion,Brand_22,189.48,105.71,1
+58,SKU-1058,Fashion Product 58,Fashion,Brand_22,53.1,34.3,1
+59,SKU-1059,Home & Kitchen Product 59,Home & Kitchen,Brand_8,151.17,79.97,1
+60,SKU-1060,Health & Beauty Product 60,Health & Beauty,Brand_23,182.95,94.67,1
+61,SKU-1061,Home & Kitchen Product 61,Home & Kitchen,Brand_7,307.7,133.12,1
+62,SKU-1062,Health & Beauty Product 62,Health & Beauty,Brand_16,326.73,222.43,1
+63,SKU-1063,Toys & Sports Product 63,Toys & Sports,Brand_23,18.67,11.79,1
+64,SKU-1064,Home & Kitchen Product 64,Home & Kitchen,Brand_22,81.75,64.81,1
+65,SKU-1065,Electronics Product 65,Electronics,Brand_22,23.49,17.13,1
+66,SKU-1066,Home & Kitchen Product 66,Home & Kitchen,Brand_12,414.8,210.97,1
+67,SKU-1067,Electronics Product 67,Electronics,Brand_15,30.58,18.73,1
+68,SKU-1068,Electronics Product 68,Electronics,Brand_10,70.71,55.71,1
+69,SKU-1069,Health & Beauty Product 69,Health & Beauty,Brand_23,139.06,80.04,1
+70,SKU-1070,Electronics Product 70,Electronics,Brand_12,45.03,25.73,1
+71,SKU-1071,Electronics Product 71,Electronics,Brand_30,82.44,41.23,1
+72,SKU-1072,Electronics Product 72,Electronics,Brand_29,467.63,306.44,1
+73,SKU-1073,Fashion Product 73,Fashion,Brand_12,307.8,174.78,1
+74,SKU-1074,Electronics Product 74,Electronics,Brand_28,64.48,34.61,1
+75,SKU-1075,Electronics Product 75,Electronics,Brand_12,428.45,291.97,1
+76,SKU-1076,Health & Beauty Product 76,Health & Beauty,Brand_30,404.42,217.79,1
+77,SKU-1077,Home & Kitchen Product 77,Home & Kitchen,Brand_2,309.85,202.65,1
+78,SKU-1078,Electronics Product 78,Electronics,Brand_24,467.05,280.42,1
+79,SKU-1079,Electronics Product 79,Electronics,Brand_17,39.93,26.23,1
+80,SKU-1080,Fashion Product 80,Fashion,Brand_3,401.47,269.33,1
+81,SKU-1081,Fashion Product 81,Fashion,Brand_3,275.08,213.62,1
+82,SKU-1082,Fashion Product 82,Fashion,Brand_12,107.31,54.68,1
+83,SKU-1083,Electronics Product 83,Electronics,Brand_17,51.75,34.84,1
+84,SKU-1084,Home & Kitchen Product 84,Home & Kitchen,Brand_19,342.4,183.61,1
+85,SKU-1085,Electronics Product 85,Electronics,Brand_29,349.88,227.97,1
+86,SKU-1086,Home & Kitchen Product 86,Home & Kitchen,Brand_5,483.95,299.66,1
+87,SKU-1087,Health & Beauty Product 87,Health & Beauty,Brand_18,495.3,279.87,1
+88,SKU-1088,Fashion Product 88,Fashion,Brand_12,434.22,271.28,1
+89,SKU-1089,Health & Beauty Product 89,Health & Beauty,Brand_17,378.5,167.01,1
+90,SKU-1090,Fashion Product 90,Fashion,Brand_19,197.86,102.7,1
+91,SKU-1091,Electronics Product 91,Electronics,Brand_7,453.16,197.81,0
+92,SKU-1092,Fashion Product 92,Fashion,Brand_16,243.85,145.63,1
+93,SKU-1093,Home & Kitchen Product 93,Home & Kitchen,Brand_4,167.69,112.19,0
+94,SKU-1094,Health & Beauty Product 94,Health & Beauty,Brand_26,61.16,47.24,1
+95,SKU-1095,Fashion Product 95,Fashion,Brand_11,223.56,168.81,1
+96,SKU-1096,Toys & Sports Product 96,Toys & Sports,Brand_17,345.57,253.92,1
+97,SKU-1097,Electronics Product 97,Electronics,Brand_18,351.98,151.04,1
+98,SKU-1098,Electronics Product 98,Electronics,Brand_8,259.1,127.81,1
+99,SKU-1099,Home & Kitchen Product 99,Home & Kitchen,Brand_25,407.34,317.28,1
+100,SKU-1100,Home & Kitchen Product 100,Home & Kitchen,Brand_12,355.55,210.72,1
+101,SKU-1101,Home & Kitchen Product 101,Home & Kitchen,Brand_3,453.65,201.64,1
+102,SKU-1102,Home & Kitchen Product 102,Home & Kitchen,Brand_8,287.88,200.48,1
+103,SKU-1103,Fashion Product 103,Fashion,Brand_30,374.29,237.06,1
+104,SKU-1104,Fashion Product 104,Fashion,Brand_21,46.03,28.14,0
+105,SKU-1105,Electronics Product 105,Electronics,Brand_21,485.09,202.41,1
+106,SKU-1106,Toys & Sports Product 106,Toys & Sports,Brand_19,459.96,230.53,0
+107,SKU-1107,Fashion Product 107,Fashion,Brand_1,316.55,214.72,1
+108,SKU-1108,Fashion Product 108,Fashion,Brand_12,451.07,188.63,0
+109,SKU-1109,Electronics Product 109,Electronics,Brand_21,200.29,88.67,1
+110,SKU-1110,Electronics Product 110,Electronics,Brand_18,234.53,126.96,1
+111,SKU-1111,Home & Kitchen Product 111,Home & Kitchen,Brand_17,133.68,77.71,1
+112,SKU-1112,Home & Kitchen Product 112,Home & Kitchen,Brand_13,303.38,154.23,0
+113,SKU-1113,Health & Beauty Product 113,Health & Beauty,Brand_15,475.15,327.99,0
+114,SKU-1114,Electronics Product 114,Electronics,Brand_5,438.95,272.43,1
+115,SKU-1115,Home & Kitchen Product 115,Home & Kitchen,Brand_17,406.22,322.91,1
+116,SKU-1116,Health & Beauty Product 116,Health & Beauty,Brand_17,199.53,145.99,1
+117,SKU-1117,Fashion Product 117,Fashion,Brand_16,210.34,107.14,1
+118,SKU-1118,Fashion Product 118,Fashion,Brand_3,269.5,188.64,1
+119,SKU-1119,Health & Beauty Product 119,Health & Beauty,Brand_17,472.66,349.7,1
+120,SKU-1120,Electronics Product 120,Electronics,Brand_4,129.46,66.01,1
+121,SKU-1121,Fashion Product 121,Fashion,Brand_8,310.97,168.94,1
+122,SKU-1122,Fashion Product 122,Fashion,Brand_18,240.72,176.34,1
+123,SKU-1123,Fashion Product 123,Fashion,Brand_25,282.66,212.18,1
+124,SKU-1124,Fashion Product 124,Fashion,Brand_14,213.17,152.18,1
+125,SKU-1125,Electronics Product 125,Electronics,Brand_6,72.5,29.42,1
+126,SKU-1126,Fashion Product 126,Fashion,Brand_2,279.63,122.03,1
+127,SKU-1127,Fashion Product 127,Fashion,Brand_23,392.91,219.49,1
+128,SKU-1128,Fashion Product 128,Fashion,Brand_17,399.25,233.06,1
+129,SKU-1129,Home & Kitchen Product 129,Home & Kitchen,Brand_21,232.27,183.96,1
+130,SKU-1130,Electronics Product 130,Electronics,Brand_15,291.93,156.66,1
+131,SKU-1131,Electronics Product 131,Electronics,Brand_8,80.19,36.53,1
+132,SKU-1132,Fashion Product 132,Fashion,Brand_27,208.77,156.52,1
+133,SKU-1133,Electronics Product 133,Electronics,Brand_5,100.18,41.71,1
+134,SKU-1134,Home & Kitchen Product 134,Home & Kitchen,Brand_5,20.74,12.85,1
+135,SKU-1135,Electronics Product 135,Electronics,Brand_13,185.31,111.44,1
+136,SKU-1136,Electronics Product 136,Electronics,Brand_24,243.17,164.17,1
+137,SKU-1137,Toys & Sports Product 137,Toys & Sports,Brand_1,35.23,17.99,1
+138,SKU-1138,Fashion Product 138,Fashion,Brand_24,493.2,303.14,1
+139,SKU-1139,Fashion Product 139,Fashion,Brand_13,187.61,109.75,1
+140,SKU-1140,Electronics Product 140,Electronics,Brand_23,70.89,47.84,1
+141,SKU-1141,Fashion Product 141,Fashion,Brand_3,58.05,33.61,1
+142,SKU-1142,Electronics Product 142,Electronics,Brand_7,370.02,174.99,1
+143,SKU-1143,Electronics Product 143,Electronics,Brand_17,167.11,74.85,1
+144,SKU-1144,Fashion Product 144,Fashion,Brand_18,180.78,119.23,1
+145,SKU-1145,Fashion Product 145,Fashion,Brand_17,295.49,206.3,1
+146,SKU-1146,Home & Kitchen Product 146,Home & Kitchen,Brand_2,172.04,130.73,1
+147,SKU-1147,Fashion Product 147,Fashion,Brand_21,168.52,130.35,1
+148,SKU-1148,Electronics Product 148,Electronics,Brand_11,126.75,58.85,1
+149,SKU-1149,Health & Beauty Product 149,Health & Beauty,Brand_3,32.55,23.99,1
+150,SKU-1150,Home & Kitchen Product 150,Home & Kitchen,Brand_2,491.28,218.53,1
+151,SKU-1151,Toys & Sports Product 151,Toys & Sports,Brand_30,7.62,6.02,1
+152,SKU-1152,Fashion Product 152,Fashion,Brand_8,465.04,289.58,1
+153,SKU-1153,Health & Beauty Product 153,Health & Beauty,Brand_4,106.51,83.84,1
+154,SKU-1154,Fashion Product 154,Fashion,Brand_26,124.99,55.74,1
+155,SKU-1155,Electronics Product 155,Electronics,Brand_13,255.52,197.47,1
+156,SKU-1156,Electronics Product 156,Electronics,Brand_23,171.62,77.88,1
+157,SKU-1157,Electronics Product 157,Electronics,Brand_5,343.86,149.63,1
+158,SKU-1158,Electronics Product 158,Electronics,Brand_3,239.22,153.68,1
+159,SKU-1159,Toys & Sports Product 159,Toys & Sports,Brand_14,416.16,327.11,0
+160,SKU-1160,Toys & Sports Product 160,Toys & Sports,Brand_1,106.48,58.74,1
+161,SKU-1161,Fashion Product 161,Fashion,Brand_9,421.71,192.26,1
+162,SKU-1162,Health & Beauty Product 162,Health & Beauty,Brand_19,413.44,196.2,1
+163,SKU-1163,Fashion Product 163,Fashion,Brand_25,182.62,137.13,1
+164,SKU-1164,Fashion Product 164,Fashion,Brand_29,358.32,272.28,1
+165,SKU-1165,Health & Beauty Product 165,Health & Beauty,Brand_1,253.85,125.12,1
+166,SKU-1166,Fashion Product 166,Fashion,Brand_7,37.98,18.67,1
+167,SKU-1167,Toys & Sports Product 167,Toys & Sports,Brand_20,315.72,168.58,1
+168,SKU-1168,Fashion Product 168,Fashion,Brand_4,269.06,203.83,0
+169,SKU-1169,Health & Beauty Product 169,Health & Beauty,Brand_1,354.96,252.53,1
+170,SKU-1170,Fashion Product 170,Fashion,Brand_1,382.42,287.09,1
+171,SKU-1171,Fashion Product 171,Fashion,Brand_20,192.52,112.2,1
+172,SKU-1172,Health & Beauty Product 172,Health & Beauty,Brand_12,79.21,38.95,1
+173,SKU-1173,Electronics Product 173,Electronics,Brand_26,301.23,188.63,1
+174,SKU-1174,Home & Kitchen Product 174,Home & Kitchen,Brand_6,94.89,72.44,1
+175,SKU-1175,Home & Kitchen Product 175,Home & Kitchen,Brand_26,147.53,95.3,1
+176,SKU-1176,Fashion Product 176,Fashion,Brand_28,307.67,125.3,1
+177,SKU-1177,Electronics Product 177,Electronics,Brand_5,459.78,329.22,1
+178,SKU-1178,Electronics Product 178,Electronics,Brand_22,290.26,186.55,1
+179,SKU-1179,Electronics Product 179,Electronics,Brand_1,421.02,321.77,1
+180,SKU-1180,Toys & Sports Product 180,Toys & Sports,Brand_25,420.25,189.06,1
+181,SKU-1181,Home & Kitchen Product 181,Home & Kitchen,Brand_15,117.56,75.61,1
+182,SKU-1182,Home & Kitchen Product 182,Home & Kitchen,Brand_9,402.41,161.71,1
+183,SKU-1183,Home & Kitchen Product 183,Home & Kitchen,Brand_7,432.44,332.63,1
+184,SKU-1184,Health & Beauty Product 184,Health & Beauty,Brand_12,228.85,112.1,0
+185,SKU-1185,Electronics Product 185,Electronics,Brand_21,290.93,135.63,0
+186,SKU-1186,Home & Kitchen Product 186,Home & Kitchen,Brand_28,292.39,190.9,1
+187,SKU-1187,Fashion Product 187,Fashion,Brand_20,487.89,284.73,1
+188,SKU-1188,Electronics Product 188,Electronics,Brand_1,498.45,299.51,1
+189,SKU-1189,Home & Kitchen Product 189,Home & Kitchen,Brand_30,216.26,155.69,1
+190,SKU-1190,Electronics Product 190,Electronics,Brand_8,23.09,13.6,1
+191,SKU-1191,Home & Kitchen Product 191,Home & Kitchen,Brand_22,358.46,219.04,1
+192,SKU-1192,Home & Kitchen Product 192,Home & Kitchen,Brand_1,282.02,130.32,1
+193,SKU-1193,Electronics Product 193,Electronics,Brand_19,377.86,192.3,1
+194,SKU-1194,Home & Kitchen Product 194,Home & Kitchen,Brand_18,17.57,8.13,1
+195,SKU-1195,Home & Kitchen Product 195,Home & Kitchen,Brand_23,278.1,139.48,1
+196,SKU-1196,Electronics Product 196,Electronics,Brand_3,56.53,40.7,1
+197,SKU-1197,Fashion Product 197,Fashion,Brand_24,361.8,261.27,1
+198,SKU-1198,Toys & Sports Product 198,Toys & Sports,Brand_5,415.96,232.47,1
+199,SKU-1199,Home & Kitchen Product 199,Home & Kitchen,Brand_10,165.38,71.9,1
+200,SKU-1200,Electronics Product 200,Electronics,Brand_4,18.13,8.57,1

@@ -1,0 +1,5 @@
+payment_id,payment_method
+1,Credit Card
+2,Cash on Delivery
+3,PayPal
+4,Wallet

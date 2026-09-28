@@ -1,0 +1,152 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 126.83998325150058,
+            "y": 0
+          },
+          "nodeIndex": "dim_campaign",
+          "nodeLineageTag": "6772fa97-7ea8-461f-8a01-2a56a7e2f316",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 27.740025122749103,
+            "y": 474.09462888949577
+          },
+          "nodeIndex": "dim_channel",
+          "nodeLineageTag": "e10e6d22-419f-47e7-93f8-2314d1c40f42",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 447,
+            "y": 0
+          },
+          "nodeIndex": "dim_customer",
+          "nodeLineageTag": "810fa6c7-a383-4ae0-b985-88e6bcad3a07",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 782.94267578529411,
+            "y": 0
+          },
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "8dd2d2c3-63b3-463f-bf40-56e45d591dba",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1081.2173409632053,
+            "y": 28.844015073649473
+          },
+          "nodeIndex": "dim_payment",
+          "nodeLineageTag": "56198358-1e5a-4cc5-8d39-62773e1e99c2",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1272.0200195399159,
+            "y": 312.77862721464584
+          },
+          "nodeIndex": "dim_product",
+          "nodeLineageTag": "d0fb7ea0-46e8-4338-96b2-e387eded7f29",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 935.913434754802,
+            "y": 520.033272852641
+          },
+          "nodeIndex": "dim_region",
+          "nodeLineageTag": "5855f002-c0e4-47cf-963b-b9822976a9b9",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 627,
+            "y": 249
+          },
+          "nodeIndex": "fact_sales",
+          "nodeLineageTag": "fb40a94e-8306-4b79-90de-5fc9cda55038",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1939.4275178377688,
+            "y": 709.15037976682879
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "7d90ae5e-80ff-44ea-a676-9b35e3913ead",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1979.1895214452343,
+            "y": 734.64051680336149
+          },
+          "nodeIndex": "Waterfall Category",
+          "nodeLineageTag": "ae8eda94-1af9-4b62-b1bf-c48be4225392",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 50.346892102823141,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

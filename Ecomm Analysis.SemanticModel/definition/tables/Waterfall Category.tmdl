@@ -1,0 +1,50 @@
+table 'Waterfall Category'
+	lineageTag: ae8eda94-1af9-4b62-b1bf-c48be4225392
+
+	measure 'Waterfall Value' = ```
+			
+			SWITCH(
+			    SELECTEDVALUE ( 'Waterfall Category'[Step] ),
+			
+			    "Total Orders", [Total Orders],
+			
+			    "Fashion Returns",
+			        - CALCULATE ( [Returned Order Count], dim_product[Category] = "Fashion" ),
+			
+			    "Electronics Returns",
+			        - CALCULATE ( [Returned Order Count], dim_product[Category] = "Electronics" ),
+			
+			    "Net Delivered Orders", [Net Delivered Orders]
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 7092be6c-56ec-435a-b474-13628994fd6c
+
+	column Step
+		lineageTag: 3d26842b-2b31-4361-9cea-b0bacc68b808
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Step]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Waterfall Category' = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "Step", STRING,
+				    {
+				        {"Total Orders"},
+				        {"Fashion Returns"},
+				        {"Electronics Returns"},
+				        {"Net Delivered Orders"}
+				    }
+				)
+				
+				
+				```
+
+	annotation PBI_Id = b90c55b2402e4a60b8ddef81f324d1cf
+

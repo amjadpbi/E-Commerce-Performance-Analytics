@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "01d0e6a2aea5c153357e",
+  "position": {
+    "x": 923.15889628924833,
+    "y": 266.71741198858234,
+    "z": 12000,
+    "height": 79.162702188392018,
+    "width": 228.96289248334921,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "⭐ Stars (Top-Right)"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "💰 Cash Cows (Bottom-Right)  "
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "🐕 Dogs (Bottom-Left)"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "❓ Question Marks (Top-Left)"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

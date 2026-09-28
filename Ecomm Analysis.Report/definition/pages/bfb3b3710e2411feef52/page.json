@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "bfb3b3710e2411feef52",
+  "displayName": "Sales Deep Dive",
+  "displayOption": "FitToWidth",
+  "height": 1200,
+  "width": 1280
+}

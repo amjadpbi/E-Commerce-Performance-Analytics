@@ -1,0 +1,259 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "59a1297dc93621c8a197",
+  "position": {
+    "x": 782.85714285714289,
+    "y": 930.00000000000011,
+    "z": 15000,
+    "height": 270,
+    "width": 488.57142857142861,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Key Insights ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Times New Roman, \"serif\"",
+                      "fontSize": "12pt"
+                    }
+                  },
+                  {
+                    "value": "💡"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Only "
+                  },
+                  {
+                    "value": "18.9%",
+                    "textStyle": {
+                      "color": "#d64550"
+                    }
+                  },
+                  {
+                    "value": " orders have multiple items Target: Increase to "
+                  },
+                  {
+                    "value": "30%",
+                    "textStyle": {
+                      "color": "#d64550"
+                    }
+                  },
+                  {
+                    "value": " "
+                  },
+                  {
+                    "value": "=",
+                    "textStyle": {
+                      "color": "#61afef"
+                    }
+                  },
+                  {
+                    "value": " "
+                  },
+                  {
+                    "value": "$3.5M",
+                    "textStyle": {
+                      "color": "#d64550"
+                    }
+                  },
+                  {
+                    "value": " revenue"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "-",
+                    "textStyle": {
+                      "color": "#61afef"
+                    }
+                  },
+                  {
+                    "value": " Increase items per order from "
+                  },
+                  {
+                    "value": "1.21 ",
+                    "textStyle": {
+                      "color": "#d64550"
+                    }
+                  },
+                  {
+                    "value": "→ "
+                  },
+                  {
+                    "value": "1.5",
+                    "textStyle": {
+                      "color": "#d64550"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "-",
+                    "textStyle": {
+                      "color": "#61afef"
+                    }
+                  },
+                  {
+                    "value": " Focus on high"
+                  },
+                  {
+                    "value": "-",
+                    "textStyle": {
+                      "color": "#61afef"
+                    }
+                  },
+                  {
+                    "value": "margin combos "
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "-",
+                    "textStyle": {
+                      "color": "#61afef"
+                    }
+                  },
+                  {
+                    "value": " Offer "
+                  },
+                  {
+                    "value": "\"Complete the Look\"",
+                    "textStyle": {
+                      "color": "#d64550"
+                    }
+                  },
+                  {
+                    "value": " suggestions"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFF2CC'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F1BD2B'"
+                    }
+                  }
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

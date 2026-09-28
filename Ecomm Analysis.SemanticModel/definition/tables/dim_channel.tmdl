@@ -1,0 +1,32 @@
+table dim_channel
+	lineageTag: e10e6d22-419f-47e7-93f8-2314d1c40f42
+
+	column channel_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a2c1fa60-175c-4630-81c6-de0dd21f8afb
+		summarizeBy: none
+		sourceColumn: channel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		lineageTag: 181f0e23-b3ec-4bab-a5cd-e5671353ff65
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_channel = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Power BI\ecom\dim_channel.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"channel_id", Int64.Type}, {"channel", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

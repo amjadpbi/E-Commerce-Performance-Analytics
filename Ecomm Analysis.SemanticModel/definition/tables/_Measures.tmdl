@@ -1,0 +1,706 @@
+table _Measures
+	lineageTag: 7d90ae5e-80ff-44ea-a676-9b35e3913ead
+
+	measure 'Total Revenue' = SUM(fact_sales[line_revenue])
+		formatString: 0.00
+		displayFolder: Revenue
+		lineageTag: 2f3e6fdc-daff-4e49-956a-195f8c3555d7
+
+	measure 'Gross Profit' = SUM(fact_sales[gross_profit])
+		displayFolder: Revenue
+		lineageTag: 0b79a080-b3e5-49ea-98ef-b48dca412f55
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Orders' = DISTINCTCOUNT(fact_sales[order_id])
+		formatString: 0
+		displayFolder: Orders
+		lineageTag: 63e87e6c-c5cc-4017-a8af-89395a517f56
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure AOV =
+			CALCULATE(
+			    DIVIDE([Total Revenue],[Total Orders],0))
+		displayFolder: Orders
+		lineageTag: 4cb2a098-c593-4222-b77c-0b4db13f602b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Items per Order' = ```
+			
+			DIVIDE(
+			    COUNTROWS(fact_sales), 
+			    [Total Orders], 
+			    0
+			)
+			
+			```
+		displayFolder: Orders
+		lineageTag: 770b498f-f7c9-4d14-9ea8-455529e490a2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Return Rate %' = ```
+			
+			DIVIDE(
+			    CALCULATE(COUNTROWS(fact_sales), fact_sales[is_return] = 1),
+			    COUNTROWS(fact_sales),
+			    0
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Orders
+		lineageTag: 3c70d002-94b6-4d07-b3ff-4a953e072ee0
+
+	measure 'MTD Revenue' = TOTALMTD(SUM(fact_sales[line_revenue]),dim_date[date])
+		displayFolder: Revenue
+		lineageTag: 68b25547-68ae-464c-9608-4440588e1701
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Previous MTD' = ```
+			
+			VAR MaxDate = MAX(dim_date[date])
+			VAR StartDate = EOMONTH(MaxDate, -2) + 1
+			VAR EndDate =
+			    MIN(
+			        EOMONTH(StartDate, 0),
+			        DATE(YEAR(StartDate), MONTH(StartDate), DAY(MaxDate))
+			    )
+			RETURN
+			CALCULATE(
+			    SUM(fact_sales[line_revenue]),
+			    ALL(dim_date),
+			    fact_sales[order_date] >= StartDate,
+			    fact_sales[order_date] <= EndDate
+			)
+			
+			```
+		displayFolder: Revenue
+		lineageTag: e232e2bd-5033-4d67-ac2d-b4adb40e7753
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MoM Growth %' = ```
+			
+			VAR _perc = 
+			DIVIDE(
+			    [MTD Revenue] - [Previous MTD],
+			    [Previous MTD],
+			    0
+			)
+			VAR _foramt = 
+			SWITCH(
+			    TRUE(),
+			_perc > 0, UNICHAR(11165) & " " & FORMAT(_perc, "0.0%"),
+			_perc < 0, UNICHAR(11167) & " " & FORMAT(_perc*-1, "0.0%"),
+			FORMAT(_perc, "0.0%")
+			)
+			RETURN _foramt
+			
+			```
+		displayFolder: Revenue
+		lineageTag: a2e072c7-14b2-499c-bdf4-31aae4b45b5f
+
+	measure 'Gross Margin %' =
+			
+			DIVIDE(SUM(fact_sales[gross_profit]),SUM(fact_sales[line_revenue]),0)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Revenue
+		lineageTag: a00a8713-861a-4373-ae4f-8947589cb961
+
+	measure 'YTD Revenue' = TOTALYTD(SUM(fact_sales[line_revenue]),fact_sales[order_date])
+		displayFolder: Revenue
+		lineageTag: 06cca473-8b9b-4c87-a3d7-db320bac34b5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'LY YTD' = ```
+			
+			VAR MaxDate = MAX(dim_date[date])
+			RETURN
+			CALCULATE(
+			    SUM(fact_sales[line_revenue]),
+			    ALL(dim_date),   -- 🔑 remove current-year filter
+			    DATESBETWEEN(
+			        dim_date[date],
+			        DATE(YEAR(MaxDate) - 1, 1, 1),
+			        DATE(YEAR(MaxDate) - 1, MONTH(MaxDate), DAY(MaxDate))
+			    )
+			)
+			
+			```
+		displayFolder: Revenue
+		lineageTag: 5b3aa722-4a3f-44dd-bc14-f2857739c550
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Vs Last Month' = ```
+			
+			VAR _CM = [Total Revenue]
+			VAR _PM = 
+			CALCULATE([Total Revenue],
+			DATEADD(fact_sales[order_date],-1,MONTH))
+			
+			RETURN _PM
+			```
+		displayFolder: Revenue
+		lineageTag: a1568ca6-038b-4bbb-ab46-acf2de30589a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YoY Growth %' = ```
+			
+			VAR _perc = 
+			DIVIDE(
+			    [YTD Revenue] - [LY YTD],
+			    [LY YTD],
+			    0
+			)
+			VAR _foramt = 
+			SWITCH(
+			    TRUE(),
+			_perc > 0, UNICHAR(11165) & " " & FORMAT(_perc, "0.0%"),
+			_perc < 0, UNICHAR(11167) & " " & FORMAT(_perc*-1, "0.0%"),
+			FORMAT(_perc, "0.0%")
+			)
+			RETURN _foramt
+			
+			```
+		displayFolder: Revenue
+		lineageTag: 97cb846b-c8fe-4e5f-a142-28733c0b7ad7
+
+	measure 'MoM formating' = ```
+			
+			VAR _perc = 
+			DIVIDE(
+			    [MTD Revenue] - [Previous MTD],
+			    [Previous MTD],
+			    0
+			)
+			VAR _foramt = 
+			SWITCH(
+			    TRUE(),
+			_perc > 0, "Green",
+			_perc < 0, "Red",
+			"Grey"
+			)
+			RETURN _foramt
+			```
+		displayFolder: Revenue
+		lineageTag: ca4eefe1-acdf-4ed8-976e-04b56d515b5c
+
+	measure 'YoY formating' = ```
+			
+			VAR _perc = 
+			DIVIDE(
+			    [YTD Revenue] - [LY YTD],
+			    [LY YTD],
+			    0
+			)
+			VAR _foramt = 
+			SWITCH(
+			    TRUE(),
+			_perc > 0, "Green",
+			_perc < 0, "Red",
+			"Red"
+			)
+			RETURN _foramt
+			```
+		displayFolder: Revenue
+		lineageTag: e8daad77-9741-4dc3-bb64-4247dddfd44f
+
+	measure 'Returned Order Count' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_sales[order_id]),
+			    FILTER(
+			        fact_sales,
+			        fact_sales[is_return] = 1
+			    )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Orders
+		lineageTag: 461b6a19-9a64-4f92-92bd-5c5ed0849dac
+
+	measure 'Revenue with Discount' = ```
+			
+			CALCULATE([Total Revenue], fact_sales[discount_pct] > 0)
+			
+			```
+		displayFolder: Revenue
+		lineageTag: 8731d87a-f988-4330-a3f9-26557b843965
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue without Discount' = ```
+			
+			CALCULATE([Total Revenue], fact_sales[discount_pct] = 0)
+			
+			```
+		displayFolder: Revenue
+		lineageTag: 43dc3e9f-17b2-48f1-b13b-61902fc87da7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Discount Dependency %' = ```
+			
+			DIVIDE([Revenue with Discount], [Total Revenue], 0)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Revenue
+		lineageTag: 0a9af19c-e0a6-450a-a35d-47b5a59ee7f9
+
+	measure 'Customer Count' = DISTINCTCOUNT(fact_sales[customer_id])
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: d7c667da-639b-47d3-acb7-d389dd66bc53
+
+	measure 'Active Customers 30d' = ```
+			
+			CALCULATE(
+			    [Customer Count],
+			    fact_sales[order_date] >= MAX(fact_sales[order_date])- 30
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: 2415ed9b-42ff-4e3b-ba2b-f3c7f746dbe5
+
+	measure 'Inactive Customers 90d' = ```
+			
+			CALCULATE(
+			    [Customer Count],
+			    FILTER(
+			        VALUES(fact_sales[customer_id]),
+			        CALCULATE(MAX(fact_sales[order_date])) < MAX(fact_sales[order_date]) - 90
+			    )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: 12bc369b-c49a-4c74-9e49-39ef256327ec
+
+	measure 'Inactive Customers 180d' = ```
+			
+			CALCULATE(
+			    [Customer Count],
+			    FILTER(
+			        VALUES(fact_sales[customer_id]),
+			        CALCULATE(MAX(fact_sales[order_date])) < MAX(fact_sales[order_date]) - 180
+			    )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: 2b7cb022-6d68-4896-be5b-b9bf485201cb
+
+	measure 'Customer LTV' = ```
+			
+			AVERAGEX(
+			    VALUES(fact_sales[customer_id]),
+			    [Total Revenue]
+			)
+			
+			```
+		displayFolder: Customer Segmentation
+		lineageTag: fed6c687-b0c1-4831-968f-2c19b2fad287
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Reactivation Revenue Opportunity' = ```
+			
+			VAR InactiveCustomers = [Inactive Customers 90d]
+			VAR AvgOrderValue = [AOV]
+			VAR AssumedConversionRate = 0.30
+			RETURN
+			InactiveCustomers * AvgOrderValue * AssumedConversionRate
+			
+			```
+		displayFolder: Customer Segmentation
+		lineageTag: 9e0e8bc4-dae9-489e-8b7d-7cddbb8a78b7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inactive %' = DIVIDE([Inactive Customers 90d],[Customer Count],0)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Customer Segmentation
+		lineageTag: de1a7c84-cdbc-4ee6-9b9d-3ea87595c3ee
+
+	measure 'Avg Customer Value' = AVERAGE(dim_customer[Monetary Value])
+		displayFolder: Customer Segmentation
+		lineageTag: 5134cf13-3ea2-4dfe-b5d1-0f8f3ac694d2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cohort Size' = ```
+			
+			VAR CurrentCohort = SELECTEDVALUE(dim_customer[Cohort Month])
+			RETURN
+			    CALCULATE(
+			        DISTINCTCOUNT(dim_customer[customer_id]),
+			        dim_customer[Cohort Month] = CurrentCohort,
+			        ALL(fact_sales)
+			    )
+			
+			```
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: d7006515-8d81-4a2b-be7c-ba495fafc8bf
+
+	measure 'Active Customers in Period' = ```
+			
+			DISTINCTCOUNT(fact_sales[customer_id])
+			
+			
+			```
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: dc7bd261-7b79-40d0-b142-4636ee2460f5
+
+	measure 'Cohort Retention %' = ```
+			
+			DIVIDE(
+			    [Active Customers in Period],
+			    [Cohort Size],
+			    0
+			)
+			
+			```
+		displayFolder: Customer Segmentation
+		lineageTag: 431d6c83-c432-4229-844e-874fb52882f3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inactive card subtitleInactive vs Last Month' = ```
+			
+			VAR CurrentInactive = [Inactive Customers 90d]
+			VAR LastMonthInactive = 
+			    CALCULATE(
+			        [Inactive Customers 90d],
+			        DATEADD(dim_date[date], -1, MONTH)
+			    )
+			RETURN 
+			    CurrentInactive - LastMonthInactive
+			```
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: 9f61b67b-98c8-486a-bb94-470b6932f600
+
+	measure 'Champions Count' = ```
+			
+			CALCULATE(
+			    [Customer Count],
+			    dim_customer[RFM Segment] = "Champions"
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: fab71122-3c0f-4b1c-b4ac-8872f946ca02
+
+	measure 'Champions Revenue' = ```
+			
+			CALCULATE(
+			    [Total Revenue],
+			    dim_customer[RFM Segment] = "Champions"
+			)
+			
+			```
+		displayFolder: Customer Segmentation
+		lineageTag: 3cd704f5-0527-40de-a28d-ecad36af52aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Champions % of Total' =
+			
+			DIVIDE([Champions Revenue], [Total Revenue], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Customer Segmentation
+		lineageTag: 41a435b5-f638-4a17-8429-830097dc1a0d
+
+	measure 'One-Time Buyers' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_sales[customer_id]),
+			    FILTER(
+			        VALUES(fact_sales[customer_id]),
+			        CALCULATE(DISTINCTCOUNT(fact_sales[order_id])) = 1
+			    )
+			)
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: c31d889d-b64a-4b41-9ffe-7572ba61c859
+
+	measure 'Repeat Customers' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_sales[customer_id]),
+			    FILTER(
+			        VALUES(fact_sales[customer_id]),
+			        CALCULATE(DISTINCTCOUNT(fact_sales[order_id])) > 1
+			    )
+			)
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: aa90fe37-56f7-47ff-87f4-9ea5949b0058
+
+	measure 'Repeat Rate %' =
+			
+			DIVIDE(
+			    [Repeat Customers],
+			    [Customer Count],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Customer Segmentation
+		lineageTag: f7f5618a-fa2e-4966-a8fb-ad223ce1e2e0
+
+	measure 'One-Time Buyer %' =
+			
+			DIVIDE(
+			    [One-Time Buyers],
+			    [Customer Count],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Customer Segmentation
+		lineageTag: 93630207-eea8-442c-bdd7-3cecf40901aa
+
+	measure 'Total Products' = ```
+			DISTINCTCOUNT(dim_product[product_id])
+			
+			```
+		formatString: 0
+		displayFolder: Product
+		lineageTag: 1e312b43-44cc-4757-bd0b-ecce365a4de7
+
+	measure 'Active Products' = ```
+			
+			CALCULATE(
+			    [Total Products],
+			    dim_product[is_active] = 1
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Product
+		lineageTag: ff334ff8-7afa-4227-bdd6-3c3820ee8472
+
+	measure 'ABC Classification' = ```
+			
+			VAR ProductRevenue = [Total Revenue]
+			VAR AllProducts = ALLSELECTED(dim_product[product_name])
+			VAR ProductRank = 
+			    RANKX(
+			        AllProducts, 
+			        [Total Revenue], 
+			        , 
+			        DESC, 
+			        DENSE
+			    )
+			VAR TotalProducts = COUNTROWS(AllProducts)
+			VAR TopTwentyPercentThreshold = TotalProducts * 0.2
+			VAR TopFiftyPercentThreshold = TotalProducts * 0.5
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ProductRank <= TopTwentyPercentThreshold, "A - Top 20%",
+			    ProductRank <= TopFiftyPercentThreshold, "B - Middle 30%",
+			    "C - Bottom 50%"
+			)
+			
+			```
+		displayFolder: Product
+		lineageTag: 032f1d4f-eef0-463e-8b4d-6ba4d8e91b7e
+
+	measure 'Days Since Last Sale' = ```
+			
+			VAR LastSaleDate = 
+			    CALCULATE(
+			        MAX(fact_sales[order_date]),
+			        ALLEXCEPT(dim_product, dim_product[product_id])
+			    )
+			RETURN 
+			DATEDIFF(LastSaleDate, MAX(fact_sales[order_date]), DAY)
+			
+			```
+		formatString: 0
+		displayFolder: Product
+		lineageTag: 0163ea2d-925b-4385-bb38-ed6ca2ff7983
+
+	measure 'Sales Velocity (Units/Day)' = ```
+			
+			VAR TotalUnits = SUM(fact_sales[quantity])
+			VAR DaysActive = 
+			    DATEDIFF(
+			        MIN(fact_sales[order_date]),
+			        MAX(fact_sales[order_date]),
+			        DAY
+			    ) + 1
+			RETURN
+			DIVIDE(TotalUnits, DaysActive, 0)
+			
+			```
+		displayFolder: Product
+		lineageTag: dc263028-670b-4afc-941c-a337ef6e6a76
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Basket Size Opportunity' = ```
+			
+			VAR CurrentAvgItems = [Avg Items per Order]
+			VAR TargetAvgItems = 1.5
+			VAR CurrentRevenue = [Total Revenue]
+			VAR RevenuePerItem = DIVIDE(CurrentRevenue, COUNTROWS(fact_sales), 0)
+			VAR TotalOrders = [Total Orders]
+			RETURN
+			(TargetAvgItems - CurrentAvgItems) * TotalOrders * RevenuePerItem
+			
+			```
+		displayFolder: Product
+		lineageTag: 9f7cb54f-676f-4651-bf93-c23eb0b68249
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inactive Product' = CALCULATE([Total Products]-[Active Products])
+		formatString: 0
+		displayFolder: Product
+		lineageTag: 707c7908-dd69-448d-af1a-57fd19117293
+
+	measure 'Median Units' = MEDIAN(fact_sales[quantity])
+		displayFolder: Product
+		lineageTag: e5008f14-09ff-4111-a6b9-730b6fd804b3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue Last 90 Days' = ```
+			
+			CALCULATE(
+			    SUM ( fact_sales[line_revenue]),
+			    DATESINPERIOD(
+			        dim_date[Date],
+			        MAX ( dim_date[Date] ),
+			        -90,
+			        DAY
+			    )
+			)
+			
+			```
+		displayFolder: Product
+		lineageTag: 473dcc28-8c99-445f-8bfd-3d58123097e8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Multi-Item Orders' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_sales[order_id]),
+			    FILTER(
+			        VALUES(fact_sales[order_id]),
+			        CALCULATE(COUNTROWS(fact_sales)) > 1
+			    )
+			)
+		formatString: 0
+		displayFolder: Product
+		lineageTag: b7320d12-5c68-4b8d-b01f-bbcf8c80b527
+
+	measure 'Multi-Item Rate' =
+			
+			DIVIDE([Multi-Item Orders], [Total Orders], 0)
+		displayFolder: Product
+		lineageTag: 2358a400-c745-4d1d-8d45-51f7b7cd7b21
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Campaign Revenue' =
+			
+			CALCULATE([Total Revenue], fact_sales[campaign_id] > 0)
+		displayFolder: Revenue
+		lineageTag: f355e979-a0f2-4a9b-9bdf-97c0651b9410
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Non-Campaign Revenue' = ```
+			
+			CALCULATE([Total Revenue], fact_sales[campaign_id] = 0)
+			
+			```
+		displayFolder: Revenue
+		lineageTag: 27611424-a405-4358-ba2d-61d20a4e0e87
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Campaign Attribution %' = ```
+			
+			DIVIDE([Campaign Revenue], [Total Revenue], 0)
+			
+			```
+		displayFolder: Orders
+		lineageTag: 0a020433-7db6-4292-b342-e77f701cbaef
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Baseline Revenue' = ```
+			
+			VAR CampaignStartDate = MIN(dim_campaign[start_date])
+			VAR CampaignEndDate = MAX(dim_campaign[end_date])
+			VAR BeforeCampaignRevenue = 
+			    CALCULATE(
+			        [Total Revenue],
+			        fact_sales[order_date] < CampaignStartDate,
+			        DATESINPERIOD(
+			            dim_date[date],
+			            CampaignStartDate - 1,
+			            -30,
+			            DAY
+			        )
+			    ) / 30
+			RETURN
+			BeforeCampaignRevenue
+			
+			```
+		displayFolder: Revenue
+		lineageTag: fe59c619-d300-4b78-bef4-da9b761df8ff
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Customers in Bucket' =
+			
+			DISTINCTCOUNT(dim_customer[customer_id])
+		formatString: 0
+		displayFolder: Customer Segmentation
+		lineageTag: b41a1ece-c4c5-4260-bbc7-3a9db970bb42
+
+	measure 'Bucket %' =
+			
+			VAR BucketCount = [Customers in Bucket]
+			VAR TotalCustomers = CALCULATE([Customers in Bucket], ALL(dim_customer[LTV Bucket]))
+			RETURN DIVIDE(BucketCount, TotalCustomers, 0)
+		displayFolder: Customer Segmentation
+		lineageTag: bf7a2cd9-2f5e-4e99-ac9d-8cd64ebbd8d8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

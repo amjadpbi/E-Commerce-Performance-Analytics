@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Ecomm Analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dabc29c0-d572-420e-822d-2b7f101975c2"
+  }
+}

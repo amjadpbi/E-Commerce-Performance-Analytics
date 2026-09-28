@@ -1,0 +1,120 @@
+table dim_product
+	lineageTag: d0fb7ea0-46e8-4338-96b2-e387eded7f29
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fd5ab23-776a-4eee-a90f-6219bd2bd9bc
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku
+		dataType: string
+		lineageTag: 2de2bc5c-1a84-43ea-a129-dc8b95698249
+		summarizeBy: none
+		sourceColumn: sku
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: dad43117-07a2-497b-b6d1-a17efe2a03f2
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 168a0aa6-69f7-4d87-8a20-3d299e20973e
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: 9d3486d8-9b56-4ebc-8884-8cb74d7c7a68
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column list_price
+		dataType: double
+		lineageTag: 754c3be8-f3d6-425c-ba0e-6b0b6125c5db
+		summarizeBy: none
+		sourceColumn: list_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost
+		dataType: double
+		lineageTag: a6e03613-0b91-46f2-a732-656b909f2125
+		summarizeBy: none
+		sourceColumn: cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_active
+		dataType: int64
+		formatString: 0
+		lineageTag: 0128f4a9-5d2e-4b36-a6ec-f24ab39fc8df
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC Classification' = ```
+			
+			VAR CurrentProduct = dim_product[product_id]
+			VAR ProductRevenue = 
+			    CALCULATE(
+			        SUM(fact_sales[line_revenue]),
+			        RELATEDTABLE(fact_sales)
+			    )
+			VAR ProductRank = 
+			    COUNTROWS(
+			        FILTER(
+			            ALL(dim_product),
+			            VAR OtherProductRevenue = 
+			                CALCULATE(
+			                    SUM(fact_sales[line_revenue]),
+			                    RELATEDTABLE(fact_sales)
+			                )
+			            RETURN OtherProductRevenue >= ProductRevenue
+			        )
+			    )
+			VAR TotalProducts = COUNTROWS(ALL(dim_product))
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ProductRank <= TotalProducts * 0.2, "A - Top 20%",
+			        ProductRank <= TotalProducts * 0.5, "B - Middle 30%",
+			        "C - Bottom 50%"
+			    )
+			
+			```
+		lineageTag: 28824c3a-34d6-46f9-a229-11fc17322d47
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Power BI\ecom\dim_product.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"product_id", Int64.Type}, {"sku", type text}, {"product_name", type text}, {"category", type text}, {"brand", type text}, {"list_price", type number}, {"cost", type number}, {"is_active", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

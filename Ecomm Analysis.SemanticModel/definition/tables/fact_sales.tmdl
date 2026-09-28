@@ -1,0 +1,269 @@
+table fact_sales
+	lineageTag: fb40a94e-8306-4b79-90de-5fc9cda55038
+
+	column order_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 013229df-66ae-4884-aba7-8aef012e18ca
+		summarizeBy: sum
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_line_id
+		dataType: string
+		lineageTag: 1f807e3c-5f9b-430a-aae9-3257cef05401
+		summarizeBy: none
+		sourceColumn: order_line_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d25dd016-29d8-4c64-a1cd-75254d3b671b
+		summarizeBy: none
+		sourceColumn: order_date
+
+		variation Variation
+			isDefault
+			relationship: 0cbc32ac-1514-4029-af79-26cc20f8a4c6
+			defaultHierarchy: LocalDateTable_61ab321c-5ae8-45ba-b3fd-2067ebdc147d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ccd4015b-2933-4ee9-bd6a-abebee25a2b2
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3456d7b5-f504-4b7d-bde8-0d6e3cc70117
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 535c6372-0b24-4dfc-a6f2-933df8907b38
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f3b98bb3-39de-486d-bb95-ece03393ad7e
+		summarizeBy: none
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 197efcb6-7e26-45b1-8a47-67aa0090111b
+		summarizeBy: none
+		sourceColumn: channel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5931f22e-0b1a-487f-8c0f-030220b5bb7f
+		summarizeBy: none
+		sourceColumn: payment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column campaign_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 64b9037d-43f0-4814-90a5-7e516b546fbf
+		summarizeBy: none
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: fc4de5d1-ac23-47b6-a6ee-45ac238e1afe
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: double
+		lineageTag: d125a826-497e-4092-bf21-96b9a943dd03
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_pct
+		dataType: double
+		lineageTag: e44612d5-8c52-45b2-8c52-bc09967cb0e1
+		summarizeBy: sum
+		sourceColumn: discount_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column shipping_amount
+		dataType: int64
+		formatString: 0
+		lineageTag: b87fa818-aabb-4f42-9cca-2e11a96b25ef
+		summarizeBy: sum
+		sourceColumn: shipping_amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column tax_pct
+		dataType: double
+		lineageTag: 69f575f9-e241-451d-8c92-c945656a0e4e
+		summarizeBy: sum
+		sourceColumn: tax_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column line_revenue
+		dataType: double
+		lineageTag: 154febc2-1585-479c-be81-9ac7879f8091
+		summarizeBy: sum
+		sourceColumn: line_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column line_cost
+		dataType: double
+		lineageTag: a9a0ab6c-5b75-4f19-8564-2c5f3c9b297a
+		summarizeBy: sum
+		sourceColumn: line_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_profit
+		dataType: double
+		lineageTag: 963743b9-e8ff-44d1-905a-ef2f45af2ec1
+		summarizeBy: sum
+		sourceColumn: gross_profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_return
+		dataType: int64
+		formatString: 0
+		lineageTag: 36fb41eb-1c7e-4e83-a81c-f34aac179400
+		summarizeBy: sum
+		sourceColumn: is_return
+
+		annotation SummarizationSetBy = Automatic
+
+	column refund_amount
+		dataType: double
+		lineageTag: 06b47843-b77c-4e97-bf6b-1186240fc33e
+		summarizeBy: sum
+		sourceColumn: refund_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column delivery_days
+		dataType: int64
+		formatString: 0
+		lineageTag: a90bae86-5d6c-40f0-94c3-08e935f1fe77
+		summarizeBy: sum
+		sourceColumn: delivery_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_status
+		dataType: string
+		lineageTag: 68001bc4-8186-4d18-bfbf-e2922363ef63
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Months Since Join' = ```
+			
+			VAR CustomerID = fact_sales[customer_id]
+			VAR OrderDate = fact_sales[order_date]
+			VAR FirstPurchaseDate = 
+			    CALCULATE(
+			        MIN(fact_sales[order_date]),
+			        ALLEXCEPT(fact_sales, fact_sales[customer_id])
+			    )
+			RETURN 
+			    DATEDIFF(FirstPurchaseDate, OrderDate, MONTH)
+			```
+		formatString: 0
+		lineageTag: 6b84613e-685d-481b-983a-c3a635c3e81f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Category' =
+			
+			RELATED(dim_product[category])
+		lineageTag: 0fb02ac0-ff1f-4089-a1b3-89c3cb40d55e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Has Multiple Categories' = ```
+			
+			VAR CurrentOrder = fact_sales[order_id]
+			VAR CategoriesInOrder = 
+			    CALCULATE(
+			        DISTINCTCOUNT(fact_sales[Primary Category]),
+			        ALLEXCEPT(fact_sales, fact_sales[order_id])
+			    )
+			RETURN
+			    IF(CategoriesInOrder > 1, "Yes", "No")
+			```
+		lineageTag: f6cf2cea-528a-453f-8d91-173d907781c6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_sales = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Power BI\ecom\fact_sales.csv"),[Delimiter=",", Columns=22, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"order_id", Int64.Type}, {"order_line_id", type text}, {"order_date", type date}, {"date_key", Int64.Type}, {"product_id", Int64.Type}, {"customer_id", Int64.Type}, {"region_id", Int64.Type}, {"channel_id", Int64.Type}, {"payment_id", Int64.Type}, {"campaign_id", Int64.Type}, {"quantity", Int64.Type}, {"unit_price", type number}, {"discount_pct", type number}, {"shipping_amount", Int64.Type}, {"tax_pct", type number}, {"line_revenue", type number}, {"line_cost", type number}, {"gross_profit", type number}, {"is_return", Int64.Type}, {"refund_amount", type number}, {"delivery_days", Int64.Type}, {"order_status", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

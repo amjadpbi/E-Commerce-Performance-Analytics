@@ -1,0 +1,53 @@
+relationship a1825ffa-a60f-477f-836d-58d85d7f19c3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_campaign.start_date
+	toColumn: LocalDateTable_2f465a9c-bc46-49a9-9598-3800aadeb11c.Date
+
+relationship a0f5f1ce-b4ed-4828-ad38-de16d5f01b57
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_campaign.end_date
+	toColumn: LocalDateTable_94e81271-24bc-4ebe-95f3-4981d5c654a2.Date
+
+relationship 272dcf8b-ced2-4469-9c21-36632564dfd0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_customer.join_date
+	toColumn: LocalDateTable_b195d493-36d9-4822-98e5-5bc7a208504c.Date
+
+relationship 3d392d0d-b01c-4a1b-96ef-8cbc5efc883d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.date
+	toColumn: LocalDateTable_285306ac-cc71-4a73-aea0-5f77d40ee6a0.Date
+
+relationship 0cbc32ac-1514-4029-af79-26cc20f8a4c6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_sales.order_date
+	toColumn: LocalDateTable_61ab321c-5ae8-45ba-b3fd-2067ebdc147d.Date
+
+relationship AutoDetected_85f5974a-d18f-4349-98ae-7a3e8bc36ddf
+	fromColumn: fact_sales.channel_id
+	toColumn: dim_channel.channel_id
+
+relationship AutoDetected_b5042ee2-b89b-4272-8262-4d9f358ccbfc
+	fromColumn: fact_sales.customer_id
+	toColumn: dim_customer.customer_id
+
+relationship AutoDetected_e961e85b-c600-445f-b93f-99d156688450
+	fromColumn: fact_sales.date_key
+	toColumn: dim_date.date_key
+
+relationship AutoDetected_d2f77a80-88ed-4fa4-aeda-3151e85b76f8
+	fromColumn: fact_sales.payment_id
+	toColumn: dim_payment.payment_id
+
+relationship AutoDetected_ef1f41f1-657b-41c2-9b2f-c1b095fe7e96
+	fromColumn: fact_sales.product_id
+	toColumn: dim_product.product_id
+
+relationship AutoDetected_44cf43ca-0f01-425f-b81e-c15811695c8d
+	fromColumn: fact_sales.region_id
+	toColumn: dim_region.region_id
+
+relationship a9079e0a-9201-3973-cc75-c9a7f1159027
+	fromColumn: fact_sales.campaign_id
+	toColumn: dim_campaign.campaign_id
+
